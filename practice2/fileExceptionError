@@ -1,0 +1,34 @@
+file_path = r"C:\Users\rajsh\OneDrive\3rd semister\Assignment 3 CC.docx"
+def read_file():
+    try:
+        with open(file_path, "rb") as file:
+            data = file.read()
+
+        print("Read permission is available.")
+        print("File read successfully.")
+
+    except PermissionError:
+        print("Error: Permission denied. Cannot read the file.")
+
+    except FileNotFoundError:
+        print("Error: File not found.")
+
+def write_file():
+    try:
+        with open(file_path, "r+b") as file:
+            file.seek(0)
+            data = file.read()
+            file.seek(0)
+            file.write(data)
+
+        print("Write permission is available.")
+        print("File write operation successful.")
+
+    except PermissionError:
+        print("Error: Permission denied. Cannot write to the file.")
+
+    except FileNotFoundError:
+        print("Error: File not found.")
+
+read_file()
+write_file()
